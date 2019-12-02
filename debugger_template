@@ -1,0 +1,46 @@
+//templates first
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define error(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); }
+
+void err(istream_iterator<string> it) {}
+template<typename T, typename... Args>
+void err(istream_iterator<string> it, T a, Args... args) {
+	cerr << *it << " = " << a << endl;
+	err(++it, args...);
+}
+
+int main() {
+	int a = 4, b = 8, c = 9;
+	error(a, b, c);
+}
+
+//template second
+#include <bits/stdc++.h>
+using namespace std;
+
+#define bug(args ...) cerr << __LINE__ << ": ", err(new istringstream(string(#args)), args), cerr << '\n'
+void err(istringstream *iss) {}
+template<typename T, typename ... Args> void err(istringstream *iss, const T &_val, const Args & ... args) {
+    string _name;
+    *iss >> _name; ////tokening on the basis of space after common ','
+    if (_name.back()==',') _name.pop_back();
+    cout << _name << " = " << _val << "; ", err(iss, args ...);
+}
+
+int func(int a, int b) {
+    return a+b;
+}
+
+int main() {
+
+    int x = 1, y = 2, n = 3, m = 4;
+    string str = "asdf";
+    bug(x, y, func(x,y), m, n, func(m,n), str);
+    cout<<'\n';
+    bug(m, n, m*n, x, y, x*y);
+    return 0;
+}

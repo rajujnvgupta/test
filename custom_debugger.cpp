@@ -1,6 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
-
+#warning hi warning
 #define imie(...) cout<<" "<<#__VA_ARGS__<<(__VA_ARGS__)<<endl;
 #define loop(n) for(int ii = 0; ii < n; ++ ii)
 
